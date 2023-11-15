@@ -1,0 +1,31 @@
+<h1>Добро пожаловать в мое приложение!</h1>
+<p>Это домашняя страница приложения.</p>
+
+<% if user_signed_in? %>
+    <span>Здравствуйте, <%= current_user.email %></span>
+    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+<% end %>
+
+<div id="carouselExampleControls" class="carousel slide w-100 h-10" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img.jpeg" class="d-block w-100 " alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img2.jpeg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img3.jpeg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

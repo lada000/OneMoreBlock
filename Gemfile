@@ -16,8 +16,10 @@ gem "bootsnap", require: false
 
  # my add gems
 gem "bootstrap", '~> 5.3.2'
+gem "devise", '~> 4.9', '>= 4.9.3'
 gem "sassc-rails"
 gem "pg"
+gem "cancancan"
 
 
 group :development, :test do
