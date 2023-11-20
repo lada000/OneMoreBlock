@@ -4,10 +4,20 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.present?
-     can :read, Picture
+    if user
+      if user.admin?
+        can :manage, :all
+      else
+        can :read, Post
+        can :create, Post
+        can :update, Post, user_id: user.id
+        can :destroy, Post, user_id: user.id
+      end
+
+      can :read, User
+      can :update, User, id: user.id
     else
-     can :read, Picture# надо придумать, что он может делать, если не зареган (ну или ничего)
+      can :read, Post
     end
   end
 end
